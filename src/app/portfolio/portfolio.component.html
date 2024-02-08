@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="text-center pt-4 color-primary">
+    <h2 class="text-uppercase mb-3 fs-1 fw-bolder">Portfolio component</h2>
+    <div class="d-flex align-items-center justify-content-center mb-3">
+      <div class="line me-3 background-primary"></div>
+      <i class="fa-solid fa-star"></i>
+      <div class="line ms-3 background-primary"></div>
+    </div>
+  </div>
+
+  <div class="row my-5 g-3">
+    <div class="col-md-4" *ngFor="let img of portImg">
+      <div
+        class="rounded-3 overflow-hidden position-relative"
+        (click)="showImg(img)">
+        <img [src]="img" class="w-100 rounded-3" alt="..." />
+        <div class="layer position-absolute start-0 w-100 top-0 h-100 d-flex justify-content-center align-items-center">
+          <i class="text-white fa-solid fa-plus fa-6x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  id="boxContainer"
+  [ngStyle]="{ display: imgDisplay == '' ? 'none' : 'flex' }"
+  (click)="close()"
+>
+  <img [src]="imgDisplay" width="600" />
+</div>
